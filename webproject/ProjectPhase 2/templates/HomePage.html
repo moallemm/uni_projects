@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIY Home Page</title>
+    <!-- importing Font Awesome for the icons of the (facebook,insta and twitter(X) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Importing the CSS file Homepage.css -->
+    <link rel="stylesheet" href="../static/css/HomePage.css">    
+</head>
+<body>
+  <header>
+    <input type="checkbox" name="" id="chk1">
+    <div class="logo"><h1>learn crafting</h1></div>
+    <div class="search-box">
+        <form id="searchForm" action="{{ url_for('search_crafts') }}" method="GET">
+            <input type="text" name="search" id="srch" placeholder="Search" value="{{ request.args.get('search', '') }}">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>        
+    </div>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/logout">Logout</a></li>
+        <li><a href="/submitfeedback">FeedBack</a></li>
+        <li>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>    
+        </li>
+    </ul>
+    <div class="menu">
+        <label for="chk1">
+            <i class="fa fa-bars"></i>
+        </label>
+    </div>
+  </header>
+
+  <main>
+    <!-- Recently added Section -->
+    <div class="container" id="recently-accessed">
+        <h1 class="bartitle">Recently added</h1>
+        <div class="card-grid">
+            <!--6 cards will be inserted here dynamically -->
+            {% for craft in recently_added %}
+            <div class="card">
+                <div class="card-details">
+                    <img src="{{ craft.image_url }}" class="card-img" alt="{{ craft.name }} photo">
+                    <div class="card-data">
+                        <h3 class="card-name">{{ craft.name }}</h3>
+                        <p class="card-description">{{ craft.description }}</p>
+                        <a href="{{ craft.video_url }}" class="card-button">Watch</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Most Trending Section -->
+    <div class="container" id="most-trending">
+        <h1 class="bartitle">Most Trending</h1>
+        <div class="card-grid">
+            <!--6 cards will be inserted here dynamically -->
+            {% for craft in most_trending %}
+            <div class="card">
+                <div class="card-details">
+                    <img src="{{ craft.image_url }}" class="card-img" alt="{{ craft.name }} photo">
+                    <div class="card-data">
+                        <h3 class="card-name">{{ craft.name }}</h3>
+                        <p class="card-description">{{ craft.description }}</p>
+                        <a href="{{ craft.video_url }}" class="card-button">Watch</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Top Searched Section -->
+    <div class="container" id="top-searched">
+        <h1 class="bartitle">Top Searched</h1>
+        <div class="card-grid">
+            <!--3 cards will be inserted here dynamically -->
+            {% for craft in top_searched %}
+            <div class="card">
+                <div class="card-details">
+                    <img src="{{ craft.image_url }}" class="card-img" alt="{{ craft.name }} photo">
+                    <div class="card-data">
+                        <h3 class="card-name">{{ craft.name }}</h3>
+                        <p class="card-description">{{ craft.description }}</p>
+                        <a href="{{ craft.video_url }}" class="card-button">Watch</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</main>
+</body>  
+</html>

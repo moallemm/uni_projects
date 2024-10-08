@@ -1,0 +1,118 @@
+/*reset the style of the page first*/
+body, h1, p, img, iframe {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Style the container */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the header */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Style the back button */
+.header a {
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+.header button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.header button:hover {
+    background-color: #0056b3;
+}
+
+/* Style the craft name */
+h1 {
+    color: #333;
+}
+
+/* Style the content section */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Style the craft details section */
+.craft-details {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.craft-details img {
+    width: 45%; 
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.craft-details p {
+    color: #666;
+    line-height: 1.6;
+    text-align: justify;
+    margin: 0 15px; 
+}
+
+/* Style the video section */
+.video-section {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.video-section iframe {
+    width: 80%; 
+    height: auto;
+    aspect-ratio: 16/9; /* Ensures the video maintains a 16:9 aspect ratio */
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Style the like and dislike buttons */
+.like-dislike {
+    display: flex;
+    justify-content: center;
+}
+
+.like-dislike button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 5px;
+}
+
+.like-dislike button:hover {
+    background-color: #0056b3;
+}

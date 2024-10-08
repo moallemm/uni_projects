@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="../static/css/about.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Back</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#" onclick="document.getElementById('contact').style.display='block'">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="about-section">
+        <div class="container">
+            <h1 id="about">About Us</h1>
+            <p>Welcome to our website. We are dedicated to delivering the best craft tutorials to our users. Our team is comprised of experienced professionals(this is a lie) who are passionate about what they do.</p>
+            <div class="team-member">
+                <img src="../static/images/when-you-walk-b1a453f809.jpg" alt="John Doe">
+                <h3>The one and only Dr.ahmad trabolsi</h3>
+                <p>Give us full marks please</p>
+            </div>
+            <div class="team">
+                <div class="team-member">
+                    <img src="../static/images/catweb1.jpg" alt="John Doe">
+                    <h3>Mohamad Moallem</h3>
+                    <p>Manager & Founder</p>
+                </div>
+                <div class="team-member">
+                    <img src="../static/images/catweb2.jpg" alt="Jane Smith">
+                    <h3>Ali Moallem</h3>
+                    <p>Lead Developer</p>
+                </div>
+                <div class="team-member">
+                    <img src="../static/images/catweb3.jpg" alt="Paul Wilson">
+                    <h3>Mohammad Awde</h3>
+                    <p>Chief Marketing Officer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+    </footer>
+
+    <div id="contact" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('contact').style.display='none'">&times;</span>
+            <h2>Contact Info</h2>
+            <form>
+                <label>Manager & Founder: Mohamad Moallem</label>
+                <p>WhatsApp: +961 71 150 442</p>
+                <p>Email: mmm430@usal.edu.lb</p>
+                <label>Lead Developer: Ali Moallem</label>
+                <p>WhatsApp: +961 71 457 488</p>
+                <p>Email: amm431@usal.edu.lb</p>
+                <label>Chief Marketing Officer: Mohammad Awde</label>
+                <p>WhatsApp: +961 81 012 074</p>
+                <p>Email: mha039@usal.edu.lb</p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // opens and closes
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('contact')) {
+                document.getElementById('contact').style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

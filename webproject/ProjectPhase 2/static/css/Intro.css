@@ -1,0 +1,40 @@
+nav {
+    background-color: transparent;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+  }
+  nav a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    
+  }
+  nav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-image: url("../images/R.jpeg");
+    background-size: cover;
+  }
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  h1 {
+    font-size: 2.5em;
+    color: #fff;
+    font-weight: 600;
+  }
+  p {
+    font-size: 1.2em;
+    color: #fff;
+    font-weight: 500;
+  }

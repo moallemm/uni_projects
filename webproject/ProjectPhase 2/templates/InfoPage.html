@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ craft.name }}</title>
+    <link rel="stylesheet" href="../static/css/info.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="/HomePage">
+                <button>Back</button>
+            </a>
+            <h1>{{ craft.name }}</h1>
+        </div>
+        <div class="content">
+            <div class="craft-details">
+                <img src="{{ craft.image_url }}" alt="{{ craft.name }}">
+                <p>{{ craft.description }}</p>
+            </div>
+            <div class="video-section">
+                <iframe src="{{ craft.video_url }}" title="{{ craft.name }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="like-dislike">
+                    <button onclick="like()">Like</button>
+                    <button onclick="dislike()">Dislike</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function like() {
+            const like = document.querySelector('.like-dislike button:nth-child(1)')
+            like.style.backgroundColor = 'green'
+        }
+
+        function dislike() {
+            console.log("dislike");
+            const dislike = document.querySelector('.like-dislike button:nth-child(2)')
+            dislike.style.backgroundColor = 'red'
+        }
+    </script>
+</body>
+</html>

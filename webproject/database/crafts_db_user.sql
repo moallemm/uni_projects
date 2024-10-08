@@ -1,0 +1,55 @@
+-- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
+--
+-- Host: localhost    Database: crafts_db
+-- ------------------------------------------------------
+-- Server version	8.0.35
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `user` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(100) NOT NULL,
+  `password_hash` varchar(1000) NOT NULL,
+  `role` varchar(100) NOT NULL,
+  `status` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user`
+--
+
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (8,'Mohammad Awde','scrypt:32768:8:1$S4PbiINO5RkYz1QA$2f5d9d9d812d126f32766cc7e8b3adc09d965ed927723410227123dde513802ec363fa3b69a9f167d9df0163401431f7e90a6b54dc81aaeb7915134aa6ee7d5d','admin','Approved'),(9,'Mohamad Moallem','scrypt:32768:8:1$tHVVdCdn1ZX1nKyD$276529d5742b4dc8244379039137736c2352602df9a57f7b24a0fac10b1cd19794e94c85b9d0a2c9b1a9166a8cdef523e57727d24bce51bb5364a882740c367a','admin','Approved'),(10,'Ali Moallem','scrypt:32768:8:1$E6q4VFRRQ8MOlmzU$21f85e9c6c2fd6f7051c2fea80f90301d660aa9556bba2a5089f9bb1f69e005172eb65da5a5858192d35c0c3a923b5625bab821e17da113eb7561e08e7e34c11','admin','Approved'),(11,'Ali','scrypt:32768:8:1$gBCHV0JgHElBR60a$a804f4101a7e343ba09cdefc9e5c0f2002d845d10dfe1211df5800f7744e7c1dcff83f59fd22c821ad88dda14f0d8d5e23edab7ce43c8357f0a3bcdb065c489c','user','banned'),(12,'Hadi','scrypt:32768:8:1$SF45VisSShKaeZMx$5ead28d2765fcd4522ddb45c05cbcbbda5c0b97646d8130583c9f840e79da8e02ae0a539d883822dd02566222e26a3a066491cc3ebf0c09bd53d5c5bcc678da6','user','Approved'),(13,'Mohamad','scrypt:32768:8:1$9i2SQGLZEXBup1UI$4ae5c2f1467aa63fa1ea1b5804852d3fdbdcaeaecf4e494e87ec8de4c9b48b4ed740e42bcebd130c15e5ce376bc0364176396c148a7d801234ba62645147ece0','user','Approved'),(14,'Mohammad  test','scrypt:32768:8:1$6yhtrlIewyRT7e3s$26fbc2716bc9d7baf52b1d7974b2b360be9c81012da6e324cd6c73ffc491e000b4a813a6ed3ec271f96c13707acc2726574968b6a338ab79c4654ba39fbe6c49','user','banned');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-05-21 14:02:26

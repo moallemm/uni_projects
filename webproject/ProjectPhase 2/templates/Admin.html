@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../static/css/admin.css">
+</head>
+<body>
+    <header>
+        <h1>Admin Dashboard</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#crafts">Manage Crafts</a></li>
+            <li><a href="#feedback">Manage Feedback</a></li>
+            <li><a href="#users">Manage Users</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div id="crafts" method='GET'>
+            <h2>Manage Crafts</h2>
+            <div id="button_container">
+                <button class="add-btn" onclick="document.getElementById('addCraftForm').style.display='block'">Add New Craft</button>
+                <button class="Edt-btn" onclick="document.getElementById('editCraftForm').style.display='block'">Edit Craft</button>
+            </div>
+            <table id="crafts_table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Image URL</th>
+                        <th>Video URL</th>
+                        <th>Description</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for craft in crafts %}
+                    <tr>
+                        <td>{{ craft.id }}</td>
+                        <td>{{ craft.name }}</td>
+                        <td>{{ craft.image_url }}</td>
+                        <td>{{ craft.video_url }}</td>
+                        <td>{{ craft.description }}</td>
+                        <td>
+                            <form action="{{ url_for('delete_craft', craft_id=craft.id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this craft?');">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="submit" id="del" value="Delete">
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div id="feedback" method='GET'>
+            <h2>Manage Feedback</h2>
+            <table id="feedback_table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Message</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for fb in feedbacks %}
+                    <tr>
+                        <td>{{ fb.id }}</td>
+                        <td>{{ fb.name }}</td>
+                        <td>{{ fb.email }}</td>
+                        <td>{{ fb.message }}</td>
+                        <td>
+                            <form action="{{ url_for('delete_feedback', feedback_id=fb.id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this feedback?');">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="submit" id="del" value="Delete">
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div id="users" method='GET'>
+            <h2>Manage Users</h2>
+            <table id="Users_table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for us in users %}
+                    <tr>
+                        <td>{{ us.id }}</td>
+                        <td>{{ us.username }}</td>
+                        <td>{{ us.role }}</td>
+                        <td>{{ us.status }}</td>
+                        <td>
+                            <div id="user_bt">
+                            <form action="{{ url_for('ban_user', user_id=us.id) }}" method="POST" onsubmit="return confirm('Are you sure you want to ban this user?');">
+                                <input type="hidden" name="_method" value="Ban">
+                                <input type="submit" id="del" value="Ban"></form>
+
+                            <form action="{{ url_for('unban_user', user_id=us.id) }}" method="POST" onsubmit="return confirm('Are you sure you want to unban this user?');">
+                                    <input type="hidden" name="_method" value="UnBan">
+                                    <input type="submit" id="unban" value="UnBan">
+                            </form>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Add Craft Form Modal -->
+        <div id="addCraftForm" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="document.getElementById('addCraftForm').style.display='none'">&times;</span>
+                <h2>Add New Craft</h2>
+                <form action="/add_craft" method="POST">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="image_url">Image URL:</label>
+                    <input type="text" id="image_url" name="image_url" required>
+                    <label for="video_url">Video URL:</label>
+                    <input type="text" id="video_url" name="video_url" required>
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" required></textarea>
+                    <input type="submit" value="Add Craft">
+                </form>
+            </div>
+        </div>
+        <div id="editCraftForm" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="document.getElementById('editCraftForm').style.display='none'">&times;</span>
+                <h2>Edit Craft</h2>
+                <form action="/edit_craft" method="POST">
+                    <label for="id">ID:</label>
+                    <input type="int" id="id" name="id" required>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="image_url">Image URL:</label>
+                    <input type="text" id="image_url" name="image_url" required>
+                    <label for="video_url">Video URL:</label>
+                    <input type="text" id="video_url" name="video_url" required>
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" required></textarea>
+                    <input type="submit" id="Edt" value="Edit Craft">
+                </form>
+            </div>
+        </div>
+        <a class="Logout_btn" href="/logout" type="button">Logout</a>
+    </main>
+
+    <script>
+        // Modal close functionality
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('addCraftForm')) {
+                document.getElementById('addCraftForm').style.display = "none";
+            }
+            if (event.target == document.getElementById('editCraftForm')) {
+                document.getElementById('editCraftForm').style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
