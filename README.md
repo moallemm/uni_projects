@@ -5,13 +5,9 @@ this read me contains a description for each project:
 the project is about the crime data from an open source goverment data for some city in the U.S that i can not remember its been a couple months since i finished this.
 
 anyways the project is 5 tasks :1) loading the data set(just loading the data set a presenting the first 5 rows,and giving a breef description of what the data is about)
-
                                 2) cleaning the data set(this included filling missing values,removing duplicates,check for outliers that may skew our data affecting the results)
-                                
                                 3) Transofroming the data set(standarizing columns that contain large numbers, dropping columns with unstructred data that the model may find a hard time reading,and much more the project is full of comments...)
-                                
-                                4) Data visulisaton and summarization(we used different types of plots to visualize the data e.g:barplot,boxplots,scatterplots)
-                                
+                                4) Data visulisaton and summarization(we used different types of plots to visualize the data e.g:barplot,boxplots,scatterplots) 
                                 5) Modeling (we used the data above to create a model i was an amatur i did not do it right i brought another data set from kaggle and made a linear regrission model that predicts the humidty in some area given a set of a data since i did not know what to do with the data set that i worked on above [crime_data])
 
 libraries used:
@@ -31,21 +27,13 @@ thats all for this project
 
 the project is a DIY Website using HTML/CSS/JavaScript/Restful APIs with Python and Flask and database integration
 the project consists of 9 templates:1)login (for logging in)
-
                                     2)resgister (if already have account you can immediately)
-                                    
-                                    3)intro (the page you first see when entering to the website takes you to login,register and about)
-                                    
-                                    4)about (a page with info on the website owners or devs)
-                                    
-                                    5)Homepage(the page you are redirected into after register or login you can view a number of the tutorials we offer and search for somthing specific)
-                                    
+                                    3)intro (the page you first see when entering to the website takes you to login,register and about)                             
+                                    4)about (a page with info on the website owners or devs)                                  
+                                    5)Homepage(the page you are redirected into after register or login you can view a number of the tutorials we offer and search for somthing specific)           
                                     6)searcg(after searching in the homepage you redirected into here were you can view you search or serach for some thing else)
-                                    
-                                    7)infopage(once you fined what your searching for you press info that takes you to this page where you can read the tutorial and fined a vidio)
-                                    
-                                    8)Admin(only admin can login into this page where he can do alot of operations such as adding,removing,editing crafts banning,unbanning users, or even giving or revoking admin previliges for new admins also you can view users feedback that the users submit from the feedback page)
-                                    
+                                    7)infopage(once you fined what your searching for you press info that takes you to this page where you can read the tutorial and fined a vidio)   
+                                    8)Admin(only admin can login into this page where he can do alot of operations such as adding,removing,editing crafts banning,unbanning users, or even giving or revoking admin previliges for new admins also you can view users feedback that the users submit from the feedback page)        
                                     9)feedback(where the users can submit feedbacks about there experince or if they want more crafts)
 
 libraries used:
