@@ -20,7 +20,7 @@ import seaborn as sns
 
 2)python project:
 
-this is a small project about gesture rock-paper-scissors that uses libraries such as cv2 and cvzone for handtracking all credits to (Murtazas workship his youtube challenge) i learned alot and was a huge help in this project (the link for his vidio: https://www.youtube.com/watch?v=k2EahPgl0ho)
+this is a small project about gesture rock-paper-scissors that uses libraries such as cv2 and cvzone for handtracking all credits to (Murtazas workshop his youtube channel) i learned alot and was a huge help in this project (the link for his vidio: https://www.youtube.com/watch?v=k2EahPgl0ho)
 thats all for this project
 
 3)web project:
