@@ -43,3 +43,20 @@ import urllib.parse
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 and some more you can find in the project it is well documented with comments 
+
+
+
+4)project(NLP):
+This project trains a next-word prediction model using BERT (Bidirectional Encoder Representations from Transformers). The model takes a sequence of words and predicts the most likely next word based on the context. The dataset is a plain text file(about a story for sherlok holmes the dataset is chosen poorly a dataset for search engines searchs would be much better but i was to lazy to search + i had no time to search slowely for a proper dataset anyways), tokenized using BERT’s tokenizer, and processed into training sequences. A pre-trained BERT model with a Masked Language Model (MLM) head is fine-tuned for this specific next-word prediction task.
+
+Libraries Used & Their Purpose
+NumPy (numpy) → Used for numerical operations (though not explicitly needed here).
+Pandas (pandas) → Typically used for handling structured data (not essential here but often useful in NLP tasks).
+PyTorch (torch, torch.nn) → Deep learning framework used for defining, training, and evaluating the model.
+Scikit-Learn (sklearn.model_selection, sklearn.metrics) → Used for splitting data into training and validation sets (train_test_split) and evaluating performance (classification_report).
+Transformers (transformers) → Hugging Face’s library for loading pre-trained Transformer models like BERT.
+AutoModelForMaskedLM → Pre-trained BERT with a masked language modeling head, used for next-word prediction.
+BertTokenizerFast → Tokenizer for converting text into BERT-compatible token IDs.
+CUDA (torch.device("cuda")) → Enables GPU acceleration if available, speeding up model training.
+PyTorch Dataloader (torch.utils.data) → Helps in efficiently loading training data in batches for better performance.
+This project fine-tunes BERT for next-word prediction by leveraging deep learning and NLP techniques using PyTorch and Hugging Face Transformers.
