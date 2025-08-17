@@ -1,4 +1,4 @@
-this read me contains a description for each project:
+this read me contains a description for each project(except the final year project it has its own):
 
 1)data science project:
 
