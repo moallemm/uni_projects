@@ -1,62 +1,126 @@
-this read me contains a description for each project(except the final year project it has its own):
+# University Projects
 
-1)data science project:
+A collection of projects developed during my B.Sc. in Data Science at the University of Sciences and Arts in Lebanon (USAL). The projects cover data analysis, machine learning, natural language processing, computer vision, and web development.
 
-the project is about the crime data from an open source goverment data for some city in the U.S that i can not remember its been a couple months since i finished this.
+These projects reflect my learning at different stages of my degree. Some are exploratory coursework rather than production-ready applications; I have documented their scope and limitations accordingly.
 
-anyways the project is 5 tasks :1) loading the data set(just loading the data set a presenting the first 5 rows,and giving a breef description of what the data is about)
-                                2) cleaning the data set(this included filling missing values,removing duplicates,check for outliers that may skew our data affecting the results)
-                                3) Transofroming the data set(standarizing columns that contain large numbers, dropping columns with unstructred data that the model may find a hard time reading,and much more the project is full of comments...)
-                                4) Data visulisaton and summarization(we used different types of plots to visualize the data e.g:barplot,boxplots,scatterplots) 
-                                5) Modeling (we used the data above to create a model i was an amatur i did not do it right i brought another data set from kaggle and made a linear regrission model that predicts the humidty in some area given a set of a data since i did not know what to do with the data set that i worked on above [crime_data])
+## Projects at a glance
 
-libraries used:
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-from sklearn.preprocessing import StandardScaler
-from sklearn.linear_model import LinearRegression
-import seaborn as sns 
+| Project | Focus | Main technologies |
+| --- | --- | --- |
+| [Crime Data Analysis](./data%20science%20project) | Crime patterns, geographic and temporal analysis; supplementary regression exercise | Python, Pandas, NumPy, scikit-learn, Matplotlib, Seaborn |
+| [Gesture Rock-Paper-Scissors](./python%20project/python%20project) | Webcam-based hand gesture recognition | Python, OpenCV, cvzone |
+| [DIY Website](./webproject) | Full-stack tutorial website with authentication and admin functions | Flask, SQLAlchemy, HTML, CSS, JavaScript |
+| NLP / BERT Experiment | Fine-tuning a masked-language model on a literary text | PyTorch, Hugging Face Transformers, scikit-learn |
+| [SafeWalk AI](./safewalk_run%2Breports%28FYP%29) | Assistive navigation desktop prototype | YOLOv8, MobileNetV3, MiDaS, Python |
 
-2)python project:
+> **Note:** Some links may need to be adjusted to match the exact folder names in this repository, particularly the crime analysis and NLP folders.
 
-this is a small project about gesture rock-paper-scissors that uses libraries such as cv2 and cvzone for handtracking all credits to (Murtazas workshop his youtube channel) i learned alot and was a huge help in this project (the link for his vidio: https://www.youtube.com/watch?v=k2EahPgl0ho)
-thats all for this project
+---
 
-3)web project:
+## 1. Crime Data Analysis — Exploratory Data Science
 
-the project is a DIY Website using HTML/CSS/JavaScript/Restful APIs with Python and Flask and database integration
-the project consists of 9 templates:1)login (for logging in)
-                                    2)resgister (if already have account you can immediately)
-                                    3)intro (the page you first see when entering to the website takes you to login,register and about)                             
-                                    4)about (a page with info on the website owners or devs)                                  
-                                    5)Homepage(the page you are redirected into after register or login you can view a number of the tutorials we offer and search for somthing specific)           
-                                    6)searcg(after searching in the homepage you redirected into here were you can view you search or serach for some thing else)
-                                    7)infopage(once you fined what your searching for you press info that takes you to this page where you can read the tutorial and fined a vidio)   
-                                    8)Admin(only admin can login into this page where he can do alot of operations such as adding,removing,editing crafts banning,unbanning users, or even giving or revoking admin previliges for new admins also you can view users feedback that the users submit from the feedback page)        
-                                    9)feedback(where the users can submit feedbacks about there experince or if they want more crafts)
+**Focus:** Data preparation, exploratory data analysis (EDA), and decision-support insights from public safety records.
 
-libraries used:
-from flask import Flask, render_template, request, redirect, url_for, flash, session, abort
-from flask_sqlalchemy import SQLAlchemy
-import urllib.parse
-from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
-and some more you can find in the project it is well documented with comments 
+This coursework project explored an open-government crime dataset from a U.S. city. The goal was to examine reported incidents, identify patterns, and communicate findings that could help inform public safety decisions. The dataset included geographic coordinates (latitude and longitude), enabling location-based analysis.
 
+### Workflow
 
+1. **Data loading and inspection:** Imported the dataset, reviewed its fields, and examined sample records.
+2. **Data cleaning:** Investigated missing values, duplicate records, and possible outliers, applying cleaning steps where appropriate.
+3. **Data transformation:** Prepared columns for analysis, including numerical scaling and handling fields that were unsuitable for the selected methods.
+4. **Exploratory analysis and visualization:** Used descriptive statistics, bar charts, box plots, scatter plots, and other visualizations to examine incident distributions.
+5. **Supplementary regression exercise:** Practiced supervised learning with a **separate Kaggle weather dataset**, building a linear regression model to predict humidity. This was an independent modeling exercise, **not a crime prediction model**.
 
-4)project(NLP):
-This project trains a next-word prediction model using BERT (Bidirectional Encoder Representations from Transformers). The model takes a sequence of words and predicts the most likely next word based on the context. The dataset is a plain text file(about a story for sherlok holmes the dataset is chosen poorly a dataset for search engines searchs would be much better but i was to lazy to search + i had no time to search slowely for a proper dataset anyways), tokenized using BERT’s tokenizer, and processed into training sequences. A pre-trained BERT model with a Masked Language Model (MLM) head is fine-tuned for this specific next-word prediction task.
+### Analytical questions
 
-Libraries Used & Their Purpose
-NumPy (numpy) → Used for numerical operations (though not explicitly needed here).
-Pandas (pandas) → Typically used for handling structured data (not essential here but often useful in NLP tasks).
-PyTorch (torch, torch.nn) → Deep learning framework used for defining, training, and evaluating the model.
-Scikit-Learn (sklearn.model_selection, sklearn.metrics) → Used for splitting data into training and validation sets (train_test_split) and evaluating performance (classification_report).
-Transformers (transformers) → Hugging Face’s library for loading pre-trained Transformer models like BERT.
-AutoModelForMaskedLM → Pre-trained BERT with a masked language modeling head, used for next-word prediction.
-BertTokenizerFast → Tokenizer for converting text into BERT-compatible token IDs.
-CUDA (torch.device("cuda")) → Enables GPU acceleration if available, speeding up model training.
-PyTorch Dataloader (torch.utils.data) → Helps in efficiently loading training data in batches for better performance.
-This project fine-tunes BERT for next-word prediction by leveraging deep learning and NLP techniques using PyTorch and Hugging Face Transformers.
+The crime-data exploration examined questions such as:
+
+- Which streets or areas had the highest numbers of reported incidents?
+- At what hours were reported crimes most frequent?
+- What patterns appeared in incident locations and law-enforcement activity?
+
+These are descriptive findings, not causal conclusions. Incident counts do not automatically establish neighborhood risk, and officer-level activity counts should not be treated as performance rankings without additional context.
+
+### Technologies
+
+**Python · Pandas · NumPy · Matplotlib · Seaborn · scikit-learn** (`StandardScaler`, `LinearRegression`)
+
+### Reflection and potential extension
+
+The main value of this project was the **exploratory analysis itself**: a useful analytical project does not require a predictive model. A natural future extension would be **DBSCAN-based geographic clustering** of latitude/longitude coordinates to explore possible incident hotspots. **DBSCAN was not implemented in the original project**; it is a proposed next step. Geographic clustering would require appropriate distance calculations, parameter tuning, and validation.
+
+> **Scope clarification:** The crime analysis and humidity regression use different datasets. The regression exercise was included to practice modeling techniques and should not be interpreted as a model of crime patterns.
+
+---
+
+## 2. Gesture Rock-Paper-Scissors
+
+**Focus:** Introductory real-time computer vision and hand tracking.
+
+A webcam-based Rock-Paper-Scissors game that uses hand tracking to interpret player gestures. The project was a learning exercise in video capture, gesture recognition, and interactive Python programming.
+
+**Tools:** Python, OpenCV (`cv2`), cvzone.
+
+**Learning resource and attribution:** This project was developed with guidance from [Murtaza's Workshop tutorial](https://www.youtube.com/watch?v=k2EahPgl0ho). Credit for the tutorial approach belongs to its creator.
+
+---
+
+## 3. DIY Tutorial Website
+
+**Focus:** Full-stack web development, authentication, relational data, and administration.
+
+A Flask-based website for browsing and searching DIY craft tutorials, reading instructions, and submitting feedback. It includes user-facing pages and an administrative interface.
+
+**Main features**
+
+- User registration, login, and authenticated sessions.
+- Introductory and about pages.
+- Home page with craft listings and search.
+- Search results and individual tutorial pages with instructions and video content.
+- Feedback submission.
+- Admin tools to add, edit, and remove crafts; manage user access; grant or revoke administrator privileges; and review feedback.
+
+**Tools:** Python, Flask, Flask-SQLAlchemy, Flask-Login, Werkzeug password hashing, HTML, CSS, JavaScript, and a relational database.
+
+**Implementation details:** The application uses Flask templates, database-backed models, login/session management, and role-restricted administrative routes. Consult the project source for its configuration and run instructions.
+
+---
+
+## 4. NLP: BERT Language Modeling Experiment
+
+**Focus:** Tokenization, transformer fine-tuning, and language-model experimentation.
+
+An experimental NLP project that fine-tunes a pretrained BERT model with a masked-language-modeling (MLM) head using a Sherlock Holmes text corpus. The project explores tokenization, training-data preparation, batching, model training, and evaluation.
+
+**Technical clarification:** BERT is designed for **masked-token prediction**, not conventional left-to-right next-word generation. Although the original goal was next-word prediction, the use of `AutoModelForMaskedLM` makes this best described as a BERT MLM experiment. Its suitability for next-word prediction depends on the exact masking and inference procedure in the code.
+
+**Tools:** Python, PyTorch, Hugging Face Transformers (`BertTokenizerFast`, `AutoModelForMaskedLM`), scikit-learn, and CUDA when available.
+
+**Limitations and possible improvements:** The literary corpus was chosen for experimentation rather than as an optimal dataset for predictive text. Future work could use a more representative corpus, evaluate on a held-out test set, and compare the approach with a causal language model designed for next-token prediction.
+
+---
+
+## 5. SafeWalk AI — Final Year Project
+
+**Focus:** Assistive computer vision and spoken navigation guidance.
+
+SafeWalk AI is a desktop prototype designed to help visually impaired users interpret their surroundings. Its pipeline combines indoor/outdoor scene classification, YOLOv8 object detection, MiDaS depth estimation, rule-based guidance, and text-to-speech output.
+
+As part of the outdoor detection work, I collected and manually annotated **224 images containing 2,209 bounding boxes across 15 classes** using Roboflow. This custom dataset supplemented existing outdoor detection data.
+
+**Current status:** Desktop prototype. Mobile deployment is a planned next step, not a completed feature.
+
+See the [SafeWalk AI project folder](./safewalk_run%2Breports%28FYP%29) for its dedicated documentation.
+
+---
+
+## Notes
+
+These are educational projects. Their README descriptions document what was implemented, rather than presenting all experiments as production-ready systems. For individual setup steps, dependencies, datasets, and results, refer to the source code and any project-specific documentation.
+
+## Contact
+
+- [GitHub](https://github.com/moallemm)
+- [LinkedIn](https://www.linkedin.com/in/mohamad-moallem-ds/)
+- [Portfolio](https://moallemm.github.io/Portfolio/)
